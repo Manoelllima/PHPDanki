@@ -25,6 +25,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             }else if($idade < 18){
                 echo "não pode dirigir";
             }
+            
+            //condições são verificações que retoram verdadeiro ou falso
         ?>
     </body>
 </html>
