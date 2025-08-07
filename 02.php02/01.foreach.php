@@ -14,6 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             
             foreach (NOMES as $key => $value) {
                 echo "valor do array nomes: ".$value."<br>";
+                
             }
         ?>
     </body>
