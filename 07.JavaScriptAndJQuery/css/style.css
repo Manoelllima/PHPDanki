@@ -1,3 +1,4 @@
+html{    scroll-behavior: smooth;}
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -5,6 +6,7 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f0f2f5; /* Cor de fundo suave */
+
 }
 header {
     background-color: #2c3e50;
