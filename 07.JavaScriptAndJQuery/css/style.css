@@ -215,6 +215,12 @@ main {
     z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
 }
 
+section#map{
+    border-bottom: 1px solid #34495e;
+    min-height: 400px;
+    width: 100%;
+}
+
 /* Responsividade geral */
 @media (max-width: 900px) {
     header {
