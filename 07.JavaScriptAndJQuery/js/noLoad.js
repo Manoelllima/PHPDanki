@@ -5,21 +5,21 @@ $('[realtime]').on('click', function (event) {
     event.preventDefault();
     // Pega o href do link clicado
     var url = $(this).attr('href');
-    console.log(url);
+
     // 2. Faz a requisição AJAX
     $.ajax({
         url: url,
         type: 'GET',
         dataType: 'html', // Espera que o servidor retorne um trecho de HTML
+
         beforeSend: function () {
             // Opcional: Adiciona um efeito de "carregando"
             $('#content').html('<p>Carregando...</p>');
         },
-        success: function (data) {
+        success: function (res, status, array) {
             // 3. Injeta o HTML recebido no contêiner                      
-            //document.scrollingElement.innerHTML = data;
-            $('body').html(data);
-            initMap();
+            let content = $(array.responseText).eq('17').html();            
+            $('#content').html(content);
             // 4. (Opcional) Atualiza a URL na barra de endereços
             // Isso permite que o usuário use os botões de voltar/avançar do navegador
             history.pushState(null, null, url);
@@ -29,11 +29,11 @@ $('[realtime]').on('click', function (event) {
             $('#content').html('<p>Não foi possível carregar o conteúdo. Por favor, tente novamente mais tarde.</p>');
             console.error("Erro ao carregar a página: " + textStatus, errorThrown);
         }
-    });    
+    })
 });
 
 // Código para lidar com os botões de voltar/avançar do navegador
-/*
+
 $(window).on('popstate', function(event) {
     var url = window.location.pathname;
     if (url === '/') {
@@ -42,8 +42,8 @@ $(window).on('popstate', function(event) {
     } else {
         // Caso contrário, faz a requisição AJAX para a URL atual
         $.get(url, function(data) {
-            $('html').html(data);
+           $('#content').html(content);
         });
     }
 });
-*/
+
