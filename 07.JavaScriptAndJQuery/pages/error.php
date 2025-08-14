@@ -25,7 +25,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             margin: 1rem  auto;
-            padding: 40px;
+            
         }
 
         h1 {

@@ -13,10 +13,12 @@
                 Além disso, a plataforma oferece relatórios e análises preditivas detalhadas, transformando dados brutos em insights acionáveis. Tome decisões estratégicas com confiança, identifique tendências e personalize a experiência de compra para cada consumidor. Nosso sistema de PDV não é apenas uma ferramenta, é um parceiro estratégico para o crescimento sustentável do seu negócio.
             </p>
         </div>
-
+ 
         <!-- Div para a imagem -->
         <div class="main-imagem-container">
-            <img src="https://placehold.co/600x400/2563eb/ffffff?text=PDV+Inovador" alt="Imagem de um Sistema de PDV Inovador">
+            <img src="<?php echo INCLUDE_PATH;?>src/img/01.webp" alt="Imagem de um Sistema de PDV Inovador">
+            <img src="<?php echo INCLUDE_PATH;?>src/img/02.webp" alt="Imagem de um Sistema de PDV Inovador">
+            <img src="<?php echo INCLUDE_PATH;?>src/img/03.webp" alt="Imagem de um Sistema de PDV Inovador">
         </div>
     </main>
 
