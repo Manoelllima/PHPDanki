@@ -1,4 +1,21 @@
+<?php
+$sql = MysqlPHP::conect()->prepare("SELECT * FROM `tb.painel_admin` WHERE user=? AND password=?");
+$erro = false;  
+if (isset($_POST['acao'])) {
+    $user = $_POST['user'];
+    $password = $_POST['password'];
+    $sql->execute(array($user, $password));
+    if ($sql->rowCount() == 1) {
+        $_SESSION["login"] = true;
+        $_SESSION["user"] = $user;
+        $_SESSION["password"] = $password;
+        exit(header("Location: " . INCLUDE_PATH));
+    } else {
+        $erro = true;
+    }
+}
 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,21 +26,31 @@
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>css/style.css" />
 </head>
 
+
 <body>
+
     <div class="login-container">
+
         <div class="login-header">
             <h2>Bem-vindo</h2>
             <p>Faça login para continuar</p>
+            <?php if($erro) echo "<div class='error-alert'>
+                                    <span class='icon'>&#9888;</span>
+                                    <p>Usuário ou senha inválidos.</p>
+                                    <p>Por favor, tente novamente.</p>
+                                </div>";
+            ?>
         </div>
+
 
         <form method="post">
             <div class="input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
+                <input type="email" id="email" name="user" placeholder="seuemail@exemplo.com" required>
             </div>
             <div class="input-group">
                 <label for="password">Senha</label>
-                <input type="password" id="password" placeholder="Sua senha" required>
+                <input type="password" id="password" name="password" placeholder="Sua senha" required>
             </div>
 
             <div class="options-group">
@@ -36,7 +63,7 @@
                 </a>
             </div>
 
-            <button type="submit" class="btn">
+            <button type="submit" name="acao" class="btn">
                 Entrar
             </button>
         </form>

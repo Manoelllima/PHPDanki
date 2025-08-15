@@ -119,3 +119,41 @@ body {
 .btn:hover {
     background-color: #2563eb;
 }
+
+/*error de login*/
+
+.error-alert {
+    background-color: #ffebee; /* Cor de fundo vermelha clara */
+    color: #c62828; /* Cor do texto vermelho escuro */
+    border: 1px solid #c62828; /* Borda vermelha */
+    padding: 5px 20px;
+    border-radius: 8px; /* Cantos arredondados */
+    font-family: Arial, sans-serif;
+    display: flex; /* Alinha o ícone e o texto */
+    align-items: center; /* Centraliza verticalmente */
+    flex-direction: column;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.error-alert p{
+    margin:  0;
+    padding: 0;
+}
+
+.error-alert .icon {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+@keyframes fadeIn {
+    from {
+    opacity: 0;
+    transform: translateY(-20px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}

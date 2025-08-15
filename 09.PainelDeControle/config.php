@@ -1,5 +1,5 @@
 <?php 
-    session_start();    
+    session_start();
     $autoLoad = function($class){
         if($class == "Email"){
             include("class/PHPMailer/src/PHPMailer.php");
@@ -10,5 +10,6 @@
     spl_autoload_register($autoLoad);   
     
     define("INCLUDE_PATH","http://localhost".dirname($_SERVER['PHP_SELF'])."/");
+
     
 ?>
