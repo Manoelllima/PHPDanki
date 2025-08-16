@@ -33,6 +33,7 @@
             flex-direction: column;
             padding: 2rem 0;
             transition: var(--transicao-suave);
+            z-index: 2;
         }
 
         .sidebar .logo {
@@ -45,8 +46,41 @@
             letter-spacing: 1px;
         }
 
+        .sidebar .user-profile{
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #34495e;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar .user-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto;           
+        }
+
+        .sidebar .user-profile h3 {
+            margin: 0.5rem 0 0.25rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .sidebar .user-profile p {
+            margin: 0;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .sidebar nav  {
+            height: 100%;
+        }
+
         .sidebar nav ul {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .sidebar nav a {
@@ -57,6 +91,10 @@
             text-decoration: none;
             transition: var(--transicao-suave);
             font-weight: 400;
+        }
+
+        .menu-inferior{
+            margin-top: auto;
         }
         
         /* Efeito de hover e link ativo */
@@ -72,6 +110,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            z-index: 1;
         }
 
         .navbar {
@@ -81,11 +120,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            
         }
-
+        
         .navbar h1 {
             font-size: 1.5rem;
             font-weight: 600;
+        }
+
+        /* Estilo menu mobile*/
+        .menu-mobile{
+            display: none;
+        }
+
+        .menu-mobile i{
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Estilos da área de conteúdo */
@@ -160,25 +210,26 @@
             border-bottom: none;
         }
 
-        /* Estilos para responsividade */
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
+        @media (max-width: 920px) {   
+            .sidebar{
+                overflow: hidden;
+                width: 0;
+            }         
+            .sidebar nav {
                 height: auto;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                padding: 1rem 0;
+                
             }
 
-            .sidebar .logo {
-                display: none; /* Oculta o logo em telas pequenas */
+            .menu-mobile{
+                display: block;
             }
 
+           
+        }
+
+        /* Estilos para responsividade */
+        @media (max-width: 768px) { 
+                  
             .sidebar nav ul {
                 display: flex;
                 flex-wrap: wrap;
@@ -204,7 +255,6 @@
 
             .navbar {
                 padding: 1rem;
-                justify-content: center;
             }
 
             .navbar h1 {

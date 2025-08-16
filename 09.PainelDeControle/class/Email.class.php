@@ -2,7 +2,7 @@
 
     class Email{
         function __construct(){ 
-            echo"send email";
+            //echo"send email";
         }
     }
 

@@ -5,10 +5,17 @@ if (isset($_POST['acao'])) {
     $user = $_POST['user'];
     $password = $_POST['password'];
     $sql->execute(array($user, $password));
+    $result = $sql->fetchAll();
+    
+    foreach ($result as $row) {
+            $_SESSION["nome"] = $row['nome'];
+            $_SESSION["sobrenome"] = $row['sobrenome'];
+            $_SESSION["password"] = $password;
+            $_SESSION["img"] = $row["img"];
+            $_SESSION["cargo"] = $row["cargo"];
+    }
     if ($sql->rowCount() == 1) {
-        $_SESSION["login"] = true;
-        $_SESSION["user"] = $user;
-        $_SESSION["password"] = $password;
+        $_SESSION["login"] = true;        
         exit(header("Location: " . INCLUDE_PATH));
     } else {
         $erro = true;

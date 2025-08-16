@@ -1,3 +1,13 @@
+<?php 
+    if(isset($_GET["url"]) == "logout") {
+       
+        Painel::logout();
+         echo "<script>alert('deslogado')</script>";
+    }
+    
+?>
+<?php INCLUDE_PATH.$_SESSION['img'];?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH.'css/main.css' ?>">
 </head>
 <body>
@@ -16,13 +27,22 @@
         <div class="logo">
             <h2>Dashboard</h2>
         </div>
+
+         <div class="user-profile">
+            <!-- <img src=https://placehold.co/80x80.png alt="User Photo" class="user-photo"> -->
+            <img src="<?php echo INCLUDE_PATH."uploads/img/".$_SESSION['img'];?>" alt="User Photo" class="user-photo">              
+            <h3><?php echo $_SESSION['nome'].' '.$_SESSION['sobrenome'];?></h3>
+            <p><?php echo $_SESSION['cargo'];?></p>
+        </div>
+
         <nav>
             <ul>
-                <li><a href="#" class="ativo">Visão Geral</a></li>
-                <li><a href="#">Produtos</a></li>
-                <li><a href="#">Clientes</a></li>
-                <li><a href="#">Relatórios</a></li>
-                <li><a href="#">Configurações</a></li>
+                <li><a href="" class="ativo">Visão Geral</a></li>
+                <li><a href="">Produtos</a></li>
+                <li><a href="">Clientes</a></li>
+                <li><a href="">Relatórios</a></li>
+                <li><a href="">Configurações</a></li>
+                <li class="menu-inferior"><a href="logout">Logout</a></li>
             </ul>
         </nav>
     </aside>
@@ -30,6 +50,9 @@
     <!-- Conteúdo Principal -->
     <main class="main-content">
         <header class="navbar">
+            <div class="menu-mobile">
+                <i class="fa-solid fa-bars"></i>    
+            </div>
             <h1>Visão Geral</h1>
         </header>
 
@@ -97,6 +120,7 @@
 
         </section>
     </main>
-
+    <script src="<?php echo INCLUDE_PATH."../js/jquery.js";?>"></script>
+    <script src="<?php echo INCLUDE_PATH."js/menu.js";?>"></script>
 </body>
 </html>
