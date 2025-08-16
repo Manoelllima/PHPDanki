@@ -1,5 +1,5 @@
 <?php 
-    include("../pass.php");
+    include("../../pass.php");
     use acess\Acess as acess;
     class MysqlPHP{
         private static $pdo;
